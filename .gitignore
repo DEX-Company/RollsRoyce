@@ -14,3 +14,4 @@ buildNumber.properties
 /bin/
 /.classpath
 /~$IoT-data.xlsx
+/.settings/
