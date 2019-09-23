@@ -7,3 +7,6 @@
   (with-open [reader (io/reader (content-stream a))]
     (doall
       (csv/read-csv reader))))
+
+(defn csv-string [data]
+  (with-out-str (csv/write-csv *out* data)))
