@@ -12,3 +12,5 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 /.project
 /bin/
+/.classpath
+/~$IoT-data.xlsx
