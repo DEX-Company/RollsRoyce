@@ -28,7 +28,9 @@
                                      results [["Min-temp" (m/minimum (ds/column dset "Temperature"))]
                                               ["Max-temp" (m/maximum (ds/column dset "Temperature"))]]]
                                  
-                                 {:output (memory-asset (utils/csv-string results))})
+                                 {:output (memory-asset {:contentType "text/csv"}
+                                                        (utils/csv-string results)
+                                                        )})
                               )))
   
   ;; Run statistics on any asset, producing a new asset
@@ -36,4 +38,19 @@
   
   ;; show the content of the analysis
   (println (utils/read-csv stats1))
+ 
+  ;; show the metadata of the results
+  (println (metadata stats1))
+  
+  )
+
+
+
+(defn remote-demo []
+  ;; This section of the demo interacts with an agent to store assets and relevant metadata
+  ;; To run these commands, you need an instance of surfer running.
+  
+  ;; create a connection to an agent. Change the base URL if required.
+  (def ag1 (utils/connect-agent "http://localhost:8080"))
+  
   )
