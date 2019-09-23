@@ -1,6 +1,7 @@
 (defproject sg.dex/rollsroyce "0.0.1"
   :url "https://github.com/DEX-Company/RollsRoyce"
-  :dependencies [[sg.dex/starfish-clj "0.7.1-SNAPSHOT"]
+  :dependencies [[sg.dex/starfish-clj "0.7.1"]
+                 [net.mikera/core.matrix "0.62.0"]
                  [org.clojure/data.json "0.2.6"]
                  [clojurewerkz/propertied "1.3.0"]
                  [org.clojure/data.csv "0.1.4"]

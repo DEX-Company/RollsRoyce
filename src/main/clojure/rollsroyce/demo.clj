@@ -1,6 +1,7 @@
 (ns rollsroyce.demo
   (:require [starfish.core :as sf :refer :all])
-  (:require [rollsroyce.utils :as utils]))
+  (:require [rollsroyce.utils :as utils])
+  (:require [clojure.core.matrix :as m]))
 
 (defn local-demo []
   ;; Commands in local-demo can be executed directly at the REPL
@@ -17,6 +18,6 @@
   ;; Display the csv header
   (println (first a1-csv))
   
-  
+  ;; 
   
   )
