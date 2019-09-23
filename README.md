@@ -1,4 +1,6 @@
-# Ocean Protocol Demonstration
+# Ocean Protocol Demonstration: Rolls-Royce Blockchain Innovation Challenge 
+
+- Slide Deck (https://drive.google.com/open?id=1IzOo0RbE8SSPnG8O8Y-HL483AE2nXYBk)
 
 This repo provides a demonstration of DEX / Ocean Protocol technology using:
 
