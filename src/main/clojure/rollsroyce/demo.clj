@@ -47,10 +47,24 @@
 
 
 (defn remote-demo []
-  ;; This section of the demo interacts with an agent to store assets and relevant metadata
-  ;; To run these commands, you need an instance of surfer running.
+  ;; This section of the demo interacts with an Agent to store assets and relevant metadata
+  ;; To run these commands, you need an instance of surfer or another compatible Agent running.
   
   ;; create a connection to an agent. Change the base URL if required.
   (def ag1 (utils/connect-agent "http://localhost:8080"))
   
+  ;; upload an asset to the surfer instance for sharing
+  (def stats2 (upload ag1 stats1))
+  
+  ;; Get a DID to refer to the asset on the Agent
+  (def did2 (did stats2))
+  
+  ;; Display the DID. May be shared with others to refer to the Asset.
+  (println (str did2))
+
+  ;; another user can access the asset via the DID
+  (def a2 (get-asset ag1 (asset-id did2)))
   )
+
+
+
