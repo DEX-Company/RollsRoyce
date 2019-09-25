@@ -24,9 +24,11 @@
                              (fn [{input :input}]
                                (let [csv-data (utils/read-csv input)
                                      dset (ds/dataset (first csv-data) (rest csv-data))
-                                     dset (ds/emap-columns dset ["Temperature"] (fn [s] (Double/parseDouble ^String s)))
+                                     dset (ds/emap-columns dset ["Temperature" "Pressure"] (fn [s] (Double/parseDouble ^String s)))
                                      results [["Min-temp" (m/minimum (ds/column dset "Temperature"))]
-                                              ["Max-temp" (m/maximum (ds/column dset "Temperature"))]]]
+                                              ["Max-temp" (m/maximum (ds/column dset "Temperature"))]
+                                              ["Min-pres" (m/minimum (ds/column dset "Pressure"))]
+                                              ["Max-pres" (m/maximum (ds/column dset "Pressure"))]]]
                                  
                                  {:output (memory-asset {:contentType "text/csv"}
                                                         (utils/csv-string results)
