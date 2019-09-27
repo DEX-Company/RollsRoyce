@@ -25,7 +25,8 @@
                                (let [csv-data (utils/read-csv input)
                                      dset (ds/dataset (first csv-data) (rest csv-data))
                                      dset (ds/emap-columns dset ["Temperature" "Pressure"] (fn [s] (Double/parseDouble ^String s)))
-                                     results [["Min-temp" (m/minimum (ds/column dset "Temperature"))]
+                                     results [["Statistic" "Value"]
+                                              ["Min-temp" (m/minimum (ds/column dset "Temperature"))]
                                               ["Max-temp" (m/maximum (ds/column dset "Temperature"))]
                                               ["Min-pres" (m/minimum (ds/column dset "Pressure"))]
                                               ["Max-pres" (m/maximum (ds/column dset "Pressure"))]]]
@@ -35,11 +36,11 @@
                                                         )})
                               )))
   
-  ;; Run statistics on any asset, producing a new asset
+  ;; Run statistics on any asset, producing a new Asset
   (def stats1 (:output (invoke-result op1 a1)))
   
-  ;; show the content of the analysis
-  (println (utils/read-csv stats1))
+  ;; Print the content of the analysis formatted as a matrix table
+  (m/pm (utils/read-csv stats1))
  
   ;; show the metadata of the results
   (println (metadata stats1))
